@@ -1,0 +1,22 @@
+.navBarStyle {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.navBarItemsStyle {
+    margin-left: 10px;
+    float:left;
+}
+
+.navBarItemsStyle2 {
+    margin-left: 250px;
+    text-align: right;
+}
+
+.navBarForm {
+    align-items: right;
+}
+
+.iconStyle {
+    font-size: x-large;
+}
