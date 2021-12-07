@@ -1,0 +1,46 @@
+<%- include ('partials/header') %>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+  // function
+</script>
+
+<div class="container">
+      <div>
+        <a class="btn btn-info" style=" margin-left:1100px;" href="/logout" >Logout</a>
+      </div>
+      <div style="margin-left: 70px;">
+        <form action="/filter" method="POST"> 
+          <div class="form-group" id="form">
+            <input type="text" name="search" id="search" placeholder="Search for titles" />
+            <select id="filter" style="margin-left: 15px;">
+              <option value="All">All</option>
+              <option value="Handbags">Handbags</option>
+              <option value="Shoes">Shoes</option>
+            </select>
+            <button type="submit" class="btn btn-info" style=" margin-left:20px; ">Search</button>
+            <a type="submit" href="/orderhistory/<%= user._id %>" class="btn" style="background-color:lightskyblue;margin-left: 20px;">Show order history</a>
+          </div>
+        </form>
+        </div>
+        <div>
+        </div>
+
+<div class="row" style="text-align: center;margin-left: 55px;">
+  <% results.forEach(function(item){ %>
+    <section style="background-color: #eee;margin-right:15px;margin-bottom:20px;">
+      <div>
+        <img src="/images/<%= item.image %>" style="width:300px; height:300px;" class="img-thumbnail"/>
+        <div><a href="items/<%= item._id %>/<%= user._id %>" style="color: rgb(69, 38, 141);font-size: medium;font-weight: bold;"><%= item.title %></a></div>
+      </div>
+    </section>
+
+  <% }); %>
+
+</div>
+</div>
+
+<%- include ('partials/footer') %>
+

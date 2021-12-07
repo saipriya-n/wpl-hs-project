@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  </head>
+  <body>
+    <section style="background-color: #eee;">
+      <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-12 col-xl-11">
+              <div class="card text-black" style="border-radius: 25px;">
+              <div class="card-body p-md-5">
+                  <div class="row justify-content-center">
+                      <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                          <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Create Your Account</p>
+                          <p class="lead">and become a valuable member of S&H team.</p><br/>
+                           <form class="mx-1 mx-md-4" role="form" action="/register" method="post">
+                              <div class="d-flex flex-row align-items-center mb-4">
+                                  <div class="form-outline flex-fill mb-0">
+                                  <label class="form-label">Username</label>
+                                  <input type="text" name="username" placeholder="Enter Username" class="form-control" required />
+                                  </div>
+                              </div>
+                              <br />
+                              <div class="d-flex flex-row align-items-center mb-4">
+                                  <div class="form-outline flex-fill mb-0">
+                                  <label class="form-label">Password</label>
+                                  <input type="password" name="password" id="password" placeholder="Password" class="form-control" required />
+                                </div>
+                              </div>
+                              <br />
+                              <div class="d-flex flex-row align-items-center mb-4">
+                                  <div class="form-outline flex-fill mb-0">
+                                  <label class="form-label">Address</label>
+                                  <input type="address" name="address" placeholder="Address" class="form-control" required />
+                                  </div>
+                              </div>
+                              <br />
+                              <div class="d-flex flex-row align-items-center mb-4">
+                                  <div class="form-outline flex-fill mb-0">
+                                  <label class="form-label">User Type</label>
+                                  <input type="usertype" name="usertype" placeholder="User Type (admin or customer)" class="form-control" required />
+                                  </div>
+                              </div>
+                              <br />
+                              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                  <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                                  <a href="/"><button type="button" class="btn btn-primary btn-lg">Cancel</button></a>
+                              </div>
+                          </form> 
+                      </div>
+                      <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                          <img src="https://media.istockphoto.com/photos/online-shopping-picture-id923079848?b=1&k=20&m=923079848&s=170667a&w=0&h=Z1mP947uM6o2ukIoqY35GqfOn2xC6BsNv5Uan6ZSmkM=" class="img-fluid" alt="Sample image" width="700" height="700" />
+                      </div>
+                  </div>
+              </div>
+              </div>
+           </div>
+          </div>
+      </div>
+    </section>
+    <script>
+      window.addEventListener("DOMContentLoaded", function(){
+        var password = document.getElementById("password");
+        password.addEventListener("input", function(){
+        // re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/;
+        if(password.length<8) {
+          password.setCustomValidity("Must contain at least 8 or more characters");
+          password.reportValidity();
+          form.password.focus();
+        }
+      });
+      });
+    </script>
+  </body>
+ </html>
+  <!-- <div class="container">
+    <h1>Register Page</h1> -->
+    <!-- <p class="lead">Enter username and password</p><br> -->
+    <!-- <form role="form" action="/register" method="post" style="max-width: 300px;"> -->
+      <!-- <div class="form-group">
+        <input type="text" name="username" placeholder="Enter Username" class="form-control">
+      </div> -->
+      <!-- <div class="form-group">
+        <input type="password" name="password" placeholder="Password" class="form-control">
+      </div> -->
+      <!-- <div class="form-group">
+        <input type="address" name="address" placeholder="Address" class="form-control">
+      </div> -->
+      <!-- <div class="form-group">
+        <input type="usertype" name="usertype" placeholder="User Type (admin or customer)" class="form-control">
+      </div> -->
+      <!-- <button type="submit" class="btn btn-default">Submit</button>
+      <a href="/"><button type="button" class="btn btn-primary">Cancel</button></a> -->
+    <!-- </form> -->
+  <!-- </div> -->
