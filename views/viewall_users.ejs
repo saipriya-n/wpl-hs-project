@@ -12,13 +12,13 @@
         <a class="btn btn-info" style=" margin-left:1100px;" href="/logout" >Logout</a>
       </div>
       <div style="margin-left: 70px;">
-        <form action="/filter" method="POST"> 
+        <form action="/useritems/filter" method="POST"> 
           <div class="form-group" id="form">
             <input type="text" name="search" id="search" placeholder="Search for titles" />
-            <select id="filter" style="margin-left: 15px;">
+            <select id="filter" name="filter" style="margin-left: 15px;">
               <option value="All">All</option>
-              <option value="Handbags">Handbags</option>
-              <option value="Shoes">Shoes</option>
+              <option value="h">Handbags</option>
+              <option value="s">Shoes</option>
             </select>
             <button type="submit" class="btn btn-info" style=" margin-left:20px; ">Search</button>
             <a type="submit" href="/orderhistory/<%= user._id %>" class="btn" style="background-color:lightskyblue;margin-left: 20px;">Show order history</a>

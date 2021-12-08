@@ -2,6 +2,13 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+      .error {
+        background: #fcc;
+        border: 2px solid #c99;
+      }
+  
+    </style>
   </head>
   <body>
     <section style="background-color: #eee;">
@@ -13,8 +20,8 @@
                   <div class="row justify-content-center">
                       <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                           <p class="h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Create Your Account</p>
-                          <p class="lead">and become a valuable member of S&H team.</p><br/>
-                           <form class="mx-1 mx-md-4" role="form" action="/register" method="post">
+                          <p class="lead">and become a valuable member of H&S team.</p><br/>
+                           <form class="mx-1 mx-md-4" role="form" action="/register" method="post" id="myForm">
                               <div class="d-flex flex-row align-items-center mb-4">
                                   <div class="form-outline flex-fill mb-0">
                                   <label class="form-label">Username</label>
@@ -60,17 +67,43 @@
       </div>
     </section>
     <script>
-      window.addEventListener("DOMContentLoaded", function(){
-        var password = document.getElementById("password");
-        password.addEventListener("input", function(){
-        // re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/;
-        if(password.length<8) {
-          password.setCustomValidity("Must contain at least 8 or more characters");
-          password.reportValidity();
-          form.password.focus();
+      window.onload = function(){
+    var pwd = document.getElementById("password");
+    var span2 = document.createElement("span");
+    span2.style.display = "none";
+    pwd.parentNode.appendChild(span2);
+
+    pwd.onfocus = function(){
+        span2.innerHTML = "Should contain at least six characters, one uppercase letter, one number and one special character (!,@,#,$,%,^,&,*,+)";
+        span2.style.display = "block";
+        pwd.classList.remove('error');
+    }
+
+    pwd.onblur = function(){
+        span2.style.display = "none";
+        pwd.classList.remove('error');
+
+    }
+    
+    var form = document.getElementById("myForm");
+    form.onsubmit = function(e){
+        var isValid = true;
+        var passwordformat = /^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*+]).{6,}$/;
+        
+        if(pwd.value.match(passwordformat)){
+            span2.style.display = "none";
         }
-      });
-      });
+        else{
+            span2.innerHTML = "Invalid password format, you should enter at least six characters, one uppercase letter, one number and one special character (!,@,#,$,%,^,&,*,+)";
+            span2.style.display = "block";
+            pwd.classList.add('error');
+            isValid = false;
+        }
+        if(!isValid){
+            e.preventDefault();
+        }
+    }
+  }
     </script>
   </body>
  </html>
